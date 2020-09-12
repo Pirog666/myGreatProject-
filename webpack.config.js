@@ -7,8 +7,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: './main.js',
-        contact: './contact.js',
+        main: './main.js'
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -23,7 +22,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             filename: 'contact.html',
             template: './htmlfiles/contact.html',
-            chunks: ['contact']
+            chunks: ['main']
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
