@@ -1,4 +1,6 @@
-import './styles/main_page.scss';
+import './styles/main_style.scss';
+import './styles/main_n_contact.scss';
+
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';

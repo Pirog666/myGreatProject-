@@ -1,0 +1,44 @@
+@import "~normalize.css";
+@import "../fonts/bebas_font.css";
+
+%textstyle{
+    font-family: Bebas;
+    color: whitesmoke;
+}
+
+body{
+    background-color:#0D0D0D;
+    background-image: url(../img/pexels-canva.jpg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 50%;
+}
+
+.content{
+    grid-column: 3/5;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    padding-top: 1rem;
+    .content__block{
+        text-align: center;
+        @extend %textstyle;
+        .content__block__title{
+            font-size: 2.5rem;
+            color: #FFBA00;
+        }
+        .content__block__text{
+            font-size: 2rem;
+            word-spacing: 0.5rem;
+            
+        }
+    }
+}
+
+// ul li contact page
+li{
+    font-size: 3rem;
+    padding: 0.7rem;
+    list-style-type: circle; 
+            
+}
