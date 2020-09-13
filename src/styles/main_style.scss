@@ -1,0 +1,54 @@
+@import "~normalize.css";
+@import "../fonts/bebas_font.css";
+
+%textstyle{
+    font-family: Bebas;
+    color: whitesmoke;
+}
+
+html{
+    font-size: 16px;
+}   
+
+.screen{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .border_hr{
+        grid-column: 1/5;
+    }
+}
+
+.header{
+    grid-column: 3/5;
+    .menu{
+        padding-top: 1rem;
+        padding-left: 2rem;
+        a{
+        font-size: 3.5rem;
+        text-decoration: none;
+        @extend %textstyle;
+        margin: 1.5rem;
+        }
+    }
+}
+
+.footer{
+    height: 6%;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    background-color: #FFBA00;
+    p{
+        @extend %textstyle;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 0.7rem;
+        font-size: 2rem;
+        
+    }
+}
+
+
+
+
