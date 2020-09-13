@@ -7,7 +7,9 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: './main.js'
+        main: './main.js',
+        contact: './contact.js',
+        articles: './articles.js'
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -22,7 +24,12 @@ module.exports = {
         new HTMLWebpackPlugin({
             filename: 'contact.html',
             template: './htmlfiles/contact.html',
-            chunks: ['main']
+            chunks: ['contact']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'articles.html',
+            template: './htmlfiles/articles.html',
+            chunks: ['articles']
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -49,7 +56,18 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader']
-            }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                  {
+                    loader: 'html-loader',
+                    options: {
+                      minimize: true,
+                    }
+                  }
+                ]
+              }
         ]
     }
 }
