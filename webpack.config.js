@@ -9,7 +9,8 @@ module.exports = {
     entry: {
         main: './main.js',
         contact: './contact.js',
-        articles: './articles.js'
+        articles: './articles.js',
+        articles_post: './articles_post.js'
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -30,6 +31,11 @@ module.exports = {
             filename: 'articles.html',
             template: './htmlfiles/articles.html',
             chunks: ['articles']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'articles_post.html',
+            template: './htmlfiles/articles_post.html',
+            chunks: ['articles_post']
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
