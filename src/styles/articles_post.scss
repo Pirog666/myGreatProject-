@@ -8,5 +8,21 @@
 
 body{
     background-color: #0D0D0D;
-    color: white;
 }
+
+.post{
+    grid-column: 1/5;
+    .post_image{
+        width: 100%;
+        object-fit:cover;
+        height: 851px;
+        opacity: 0.3;
+    }
+    .post_text{
+        padding: 4rem;
+        background-color: whitesmoke;
+        color: #0D0D0D;
+        text-align: center;
+    }
+}
+
