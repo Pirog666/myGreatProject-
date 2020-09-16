@@ -1,5 +1,9 @@
 @import "~normalize.css";
 @import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
 
 %textstyle{
     font-family: Bebas;
@@ -42,7 +46,7 @@ body{
     width: 50%;
     position: fixed;
     bottom: 0;
-    background-color: #FFBA00;
+    background-color: $yellow;
     p{
         @extend %textstyle;
         font-family: Arial, Helvetica, sans-serif;

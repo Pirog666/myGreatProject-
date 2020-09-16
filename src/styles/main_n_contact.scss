@@ -1,5 +1,9 @@
 @import "~normalize.css";
 @import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
 
 %textstyle{
     font-family: Bebas;
@@ -7,7 +11,7 @@
 }
 
 body{
-    background-color:#0D0D0D;
+    background-color: $black;
     background-image: url(../img/pexels-canva.jpg);
     background-position: left;
     background-repeat: no-repeat;
@@ -26,19 +30,23 @@ body{
         @extend %textstyle;
         .content__block__title{
             font-size: 2.5rem;
-            color: #FFBA00;
+            color: $yellow;
         }
         .content__block__text{
-            font-size: 2rem;
+            font-size: 2.1rem;
             word-spacing: 0.5rem;
         }
+        .content__block__text_list{
+            font-size: 3rem;
+            padding: 0.7rem;
+            list-style-type: circle;          
+        }
+        .content__block__text_link{
+            text-decoration: none;
+        }
+        .content__block__text_link:hover {
+            color: red;
+            cursor: pointer;
+        } 
     }
-}
-
-// ul li contact page
-li{
-    font-size: 3rem;
-    padding: 0.7rem;
-    list-style-type: circle; 
-            
 }

@@ -1,5 +1,9 @@
 @import "~normalize.css";
 @import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
 
 %textstyle{
     font-family: Bebas;
@@ -7,7 +11,7 @@
 }
 
 body{
-    background-color: #0D0D0D;
+    background-color: $black;
 }
 
 .articles{
@@ -18,39 +22,52 @@ body{
     margin: 3rem;
     .articles_post{
         text-align: center;
-        width: 500px;
-        height: 470px;
+        width: 31rem;
+        height: 31rem;
         .articles_post_img{
             opacity: 1;
-            width: 470px;
+            width: 100%;
             object-fit:cover;
         }
         .articles_post_description{
             margin-top: 0.7rem;
         }
+        .articles_post_link { 
+            color: $white; 
+            text-decoration:none;
+            @extend %textstyle;
+            font-size: 2.5rem;
+        }
+        .articles_post_link:hover {
+            color: $purple;
+            opacity: 0.6;
+            background: rgba(0,0,0,0.5);
+            cursor: pointer;
+        } 
     }
     .articles_tags{
-        background-color: white; 
         grid-column: 3/4;
         grid-row: 1/4;
         padding-top: 0rem;
-        width: 300px;
-        height: 90%;
-
+        width: 100%;
+        margin-left: 5rem;
+        .articles_tags_title{
+            // margin-top: 1rem;
+            font-family: Bebas;
+            color: $yellow;
+            font-size: 6rem;
+        }
+        .articles_tags_tag{
+            font-family: Bebas;
+            color: $purple;
+            font-size: 5rem;
+            display: block;
+            text-decoration: none;
+        }
+        .articles_tags_tag:hover {
+            color: red;
+        }
     }
 }
 
-.articles_post_link { 
-    color:whitesmoke; 
-    text-decoration:none;
-    @extend %textstyle;
-    font-size: 2.5rem;
-}
-
-.articles_post_link:hover {
-    color: #551A8B;
-    opacity: 0.6;
-    background: rgba(0,0,0,0.5);
-    cursor: pointer;
-} 
 
