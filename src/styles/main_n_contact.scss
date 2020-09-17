@@ -26,7 +26,7 @@ body{
     padding-right: 9rem;
     padding-top: 1rem;
     .content__block{
-        text-align: center;
+        text-align: left;
         @extend %textstyle;
         .content__block__title{
             font-size: 2.5rem;
@@ -36,17 +36,15 @@ body{
             font-size: 2.1rem;
             word-spacing: 0.5rem;
         }
-        .content__block__text_list{
-            font-size: 3rem;
-            padding: 0.7rem;
-            list-style-type: circle;          
-        }
         .content__block__text_link{
             text-decoration: none;
         }
         .content__block__text_link:hover {
             color: red;
             cursor: pointer;
-        } 
+        }
+        .content__block__text_cont{
+            font-size: 3rem;
+        }
     }
 }

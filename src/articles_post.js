@@ -13,5 +13,5 @@ import border from './htmlfiles/partials/border_hr.html';
 import articles_post_content from './htmlfiles/partials/content/articles_post_content.html';
 
 window.onload = function () {
-    document.getElementById("screen").innerHTML = header + border + articles_post_content + footer;
+    document.getElementById("screen").innerHTML = header + border + articles_post_content;
 }

@@ -12,24 +12,46 @@ $purple: #551A8B;
 
 body{
     background-color: $black;
-}
-hr{
+    hr{
     margin-bottom: 0rem;
+    }
 }
+
 .post{
+    position: relative;
     grid-column: 1/5;
     background-color: $white;
-    .post_image{
+    display: grid;
+
+    .post_description{
         background-color: $black;
         height: 860px;
         pointer-events: none; 
-        img{
-        width: 100%;
-        object-fit:cover;
-        height: 860px;
-        opacity: 0.3; 
+        >img{
+            width: 100%;
+            object-fit:cover;
+            height: 860px;
+            opacity: 0.15; 
         }
-        
+        .post_description_title{
+            position: absolute;
+            text-align: center;
+            @extend %textstyle; 
+            top:35%;
+            left:50%;
+            transform:translate(-50%, -50%);  
+            font-size: 4rem;
+            font-weight: bold;
+            .post_description_title_date{
+                color: $yellow;
+            }
+            .post_description_title_tags{
+                color: $purple;
+            }
+            // .post_description_title_name{
+            //     color: $purple;
+            // }
+        }
     }
     .post_text{
         padding: 4rem;
@@ -37,3 +59,4 @@ hr{
         text-align: center;
     }
 }
+
