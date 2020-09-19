@@ -43,14 +43,14 @@ body{
             font-size: 4rem;
             font-weight: bold;
             .post_description_title_date{
-                color: $yellow;
+                font-size: 3rem;
             }
             .post_description_title_tags{
                 color: $purple;
             }
-            // .post_description_title_name{
-            //     color: $purple;
-            // }
+            .post_description_title_name{
+                color: $yellow;
+            }
         }
     }
     .post_text{
