@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var webpack = require("webpack");
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -17,6 +18,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
+        
         new HTMLWebpackPlugin({
             filename: 'main_page.html',
             template: './htmlfiles/main_page.html',
