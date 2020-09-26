@@ -13,5 +13,5 @@ import border from './htmlfiles/partials/border_hr.html';
 import contact_content from './htmlfiles/partials/content/contact_content.html';
 
 window.onload = function () {
-    document.getElementById("screen").innerHTML = header + border + contact_content + footer;
+    $('#screen').html(header + border + contact_content + footer);
 }

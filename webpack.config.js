@@ -20,7 +20,8 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            mustache: 'mustache'
         }),
         
         new HTMLWebpackPlugin({
