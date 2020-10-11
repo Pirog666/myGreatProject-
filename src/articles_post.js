@@ -28,6 +28,14 @@ window.onload = function () {
 
     $('#screen').html(header + border + innerBlocks);
 
+    $('.btnMedio').click(function (event) {
+        console.log('yes');
+        event.preventDefault();
+        var n = $(document).height();
+        $('html, body').animate({ scrollTop: 1000 }, 500);
+
+    });
+
     // const queryString = window.location.search;
     // console.log(queryString);
     // const urlParams = new URLSearchParams(queryString);
@@ -35,3 +43,17 @@ window.onload = function () {
     // console.log(product);
     // server.requestData("id23")
 }
+
+
+
+// $('.btnMedio').click(function (event) {
+//     console.log('yes');
+//     // Preventing default action of the event
+//     event.preventDefault();
+//     // Getting the height of the document
+//     var n = $(document).height();
+//     $('html, body').animate({ scrollTop: n }, 50);
+// //                                       |    |
+// //                                       |    --- duration (milliseconds) 
+// //                                       ---- distance from the top
+// });
