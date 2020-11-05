@@ -55,6 +55,13 @@ body{
             }
             .post_description_title_button{
                 margin-top: 10rem;
+                a{
+                    color: $purple;
+                }
+                a:hover {
+                    color: red;
+                    cursor: pointer;
+                }
             }
             
         }

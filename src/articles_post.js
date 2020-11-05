@@ -11,20 +11,30 @@ import border from './htmlfiles/partials/border_hr.html';
 import articles_post_content from './htmlfiles/partials/content/articles_post_content.html';
 
 
-const info = []; // объявление массива
-// в будущем массив объектов с краткой информацией о статье
-// будет будет приходить с сервера 
-info[0] = {
-    picture: 'https://img3.goodfon.ru/wallpaper/nbig/c/6f/schenok-schenochek-sobaka-sobachka-3398.jpg',
-    tags: '#1',
-    name: 'hi lalalalal',
-    date: '01.01.2001'
-}
+let data = new Promise((resolve, reject) => {
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let product = urlParams.get('id');
 
-window.onload = function () {
+    fetch('http://localhost:3012/articles/' + product).then(data => {
+        resolve(data.json());
+    })
+});
+
+
+window.onload = async function () {
 
     let template = articles_post_content;
-    let innerBlocks = mustache.render(template, info[0]);
+    let info = await data;
+
+    let resultItem = {
+        picture: info.picture_url,
+        tags: '#временно',
+        name: info.name,
+        date: info.date
+    }
+    
+    let innerBlocks = mustache.render(template, resultItem);
 
     $('#screen').html(header + border + innerBlocks);
 
@@ -33,17 +43,9 @@ window.onload = function () {
         event.preventDefault();
         var n = $(document).height();
         $('html, body').animate({ scrollTop: 1000 }, 500);
-
     });
 
-    // const queryString = window.location.search;
-    // console.log(queryString);
-    // const urlParams = new URLSearchParams(queryString);
-    // const product = urlParams.get('id');
-    // console.log(product);
-    // server.requestData("id23")
 }
-
 
 
 // $('.btnMedio').click(function (event) {

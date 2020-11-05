@@ -14,36 +14,33 @@ import articles_content from './htmlfiles/partials/content/articles_content.html
 import articles_block_content from './htmlfiles/partials/content/articles_block_content.html';
 
 
-const info = []; // объявление массива
-// в будущем массив объектов с краткой информацией о статье
-// будет будет приходить с сервера 
-info[0] = {
-    link: 'articles_post.html?id=473',
-    picture: 'https://img3.goodfon.ru/wallpaper/nbig/c/6f/schenok-schenochek-sobaka-sobachka-3398.jpg',
-    description: 'lol1'
-}
-info[1] = {
-    link: 'articles_post.html?id=472',
-    picture: 'https://img3.goodfon.ru/wallpaper/nbig/c/6f/schenok-schenochek-sobaka-sobachka-3398.jpg',
-    description: 'lol2'
-}
-info[2] = {
-    link: 'articles_post.html?id=471',
-    picture: 'https://img3.goodfon.ru/wallpaper/nbig/c/6f/schenok-schenochek-sobaka-sobachka-3398.jpg',
-    description: 'lol3'
-}
+let data = new Promise((resolve, reject) => {
+    fetch('http://localhost:3012/articles').then(data => {
+        resolve(data.json());
+    })
+});
 
 
-window.onload = function () {
+window.onload = async function () {
     $('#screen').html(header + border + articles_content + footer);
     let template = articles_block_content;
+    let info = await data;
 
     function makeBlock() {
         let innerBlocks = '';
         info.forEach(function (item, i, info) {
-            innerBlocks += mustache.render(template, item);
+
+            let resultItem = {
+                link: "articles_post.html?id=" + item.id,
+                picture: item.picture_url,
+                name: item.name,
+                tags: '#временно'
+            }
+
+            innerBlocks += mustache.render(template, resultItem);
         })
         return innerBlocks;
     }
     $('#articles_place').html(makeBlock());
 }
+

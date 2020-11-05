@@ -37,6 +37,8 @@ body{
                     opacity: 1;
                     width: 100%;
                     object-fit:cover;
+                    width: 100%; /* Ширина изображений */
+                    height: 15rem;
                 }
                 .articles_post_block_link { 
                     color: $white; 
@@ -45,6 +47,7 @@ body{
                     .articles_post_block_link_description{
                         margin-top: 0.7rem;
                         font-size: 2.2rem;
+                        margin-bottom: 0rem;
                     }
                 }
                 .articles_post_block_link:hover {
@@ -53,6 +56,12 @@ body{
                     background: rgba(0,0,0,0.5);
                     cursor: pointer;
                 } 
+                .articles_post_block_link_tags{
+                    @extend %textstyle;
+                    font-size: 2.2rem;
+                    margin-top: 0rem;
+                    color: $purple;
+                }
             }
         }
         
