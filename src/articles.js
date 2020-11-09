@@ -11,11 +11,19 @@ import footer from './htmlfiles/partials/footer.html';
 import border from './htmlfiles/partials/border_hr.html';
 
 import articles_content from './htmlfiles/partials/content/articles_content.html';
-import articles_block_content from './htmlfiles/partials/content/articles_block_content.html';
+import articles_block_template from './htmlfiles/partials/content/articles_block_template.html';
+import articles_tags_template from './htmlfiles/partials/content/articles_tags_template.html';
 
 
-let data = new Promise((resolve, reject) => {
+let dataArticles = new Promise((resolve, reject) => {
     fetch('http://localhost:3012/articles').then(data => {
+        resolve(data.json());
+    })
+});
+
+
+let dataTags = new Promise((resolve, reject) => {
+    fetch('http://localhost:3012/tags').then(data => {
         resolve(data.json());
     })
 });
@@ -23,24 +31,42 @@ let data = new Promise((resolve, reject) => {
 
 window.onload = async function () {
     $('#screen').html(header + border + articles_content + footer);
-    let template = articles_block_content;
-    let info = await data;
+
+    let templateArticles = articles_block_template;
+    let templateTags = articles_tags_template;
+    
+    let infoArticles = await dataArticles;
+    let infoTags = await dataTags;
 
     function makeBlock() {
         let innerBlocks = '';
-        info.forEach(function (item, i, info) {
-
+        infoArticles.forEach(function (item, i, info) {
             let resultItem = {
                 link: "articles_post.html?id=" + item.id,
                 picture: item.picture_url,
                 name: item.name,
-                tags: '#временно'
+                tags: item.tag_names
             }
-
-            innerBlocks += mustache.render(template, resultItem);
+            innerBlocks += mustache.render(templateArticles, resultItem);
         })
         return innerBlocks;
     }
+
+    function makeTags() {
+        let innerBlocks = '';
+        infoTags.forEach(function (item, i, info) {
+
+            let resultItem = {
+                name: item.tag_name,
+                count: item.articles_count
+            }
+
+            innerBlocks += mustache.render(templateTags, resultItem);
+        })
+        return innerBlocks;
+    }
+
     $('#articles_place').html(makeBlock());
+    $('#articles_tags_place').html(makeTags());
 }
 
