@@ -1,5 +1,9 @@
 @import "~normalize.css";
 @import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
 
 %textstyle{
     font-family: Bebas;
@@ -7,12 +11,93 @@
 }
 
 body{
-    background-color: #0D0D0D;
+    background-color: $black;
 }
 
-.articles{
-    grid-column: 2/4;
-    font-size: 3rem;
-    color:wheat;
-    text-align: center;
+    .articles{
+        padding-left: 7rem;
+        padding-top: 4rem;
+        grid-column: 1/5;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        column-gap: 5rem;
+
+        .articles_post{
+            grid-column: 1/4;
+            grid-row: 1/4;
+            grid-template-columns: 1fr 1fr 1fr;
+            display: inline-grid;
+            column-gap: 3rem;
+            .articles_post_block{
+                text-align: center;
+                max-width: 23rem;
+                max-height: 30rem;
+                .articles_post_block_img{
+                    opacity: 1;
+                    width: 100%;
+                    object-fit:cover;
+                    width: 100%; /* Ширина изображений */
+                    height: 15rem;
+                }
+                .articles_post_block_link { 
+                    color: $white; 
+                    text-decoration:none;
+                    @extend %textstyle;
+                    .articles_post_block_link_description{
+                        margin-top: 0.7rem;
+                        font-size: 2.2rem;
+                        margin-bottom: 0rem;
+                    }
+                }
+                .articles_post_block_link:hover {
+                    color: $purple;
+                    opacity: 0.6;
+                    background: rgba(0,0,0,0.5);
+                    cursor: pointer;
+                } 
+                .articles_post_block_link_tags{
+                    @extend %textstyle;
+                    font-size: 2.2rem;
+                    margin-top: 0rem;
+                    color: $purple;
+                }
+            }
+        }
+        
+        .articles_tags{
+            grid-column: 4/5;
+            grid-row: 1/4;
+            width: 100%;
+            .articles_tags_title{
+                margin-top: 0rem;
+                font-family: Bebas;
+                color: $yellow;
+                font-size: 6rem;
+            }
+            .articles_tags_tag{
+                font-family: Bebas;
+                color: $purple;
+                font-size: 4.5rem;
+                text-decoration: none;
+            }
+            .articles_tags_tag:hover {
+                color: red;
+            }
+        }
+    } 
+    
+
+@media (max-width: 900px) {
+    .articles{
+        .articles_post{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+.footer{
+    position: fixed;
+    right: 0;
+    width: 20%;
 }

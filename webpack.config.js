@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var webpack = require("webpack");
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -9,13 +10,20 @@ module.exports = {
     entry: {
         main: './main.js',
         contact: './contact.js',
-        articles: './articles.js'
+        articles: './articles.js',
+        articles_post: './articles_post.js'
     },
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            mustache: 'mustache'
+        }),
+        
         new HTMLWebpackPlugin({
             filename: 'main_page.html',
             template: './htmlfiles/main_page.html',
@@ -30,6 +38,11 @@ module.exports = {
             filename: 'articles.html',
             template: './htmlfiles/articles.html',
             chunks: ['articles']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'articles_post.html',
+            template: './htmlfiles/articles_post.html',
+            chunks: ['articles_post']
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({

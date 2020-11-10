@@ -13,5 +13,5 @@ import border from './htmlfiles/partials/border_hr.html';
 import main_content from './htmlfiles/partials/content/main_content.html';
 
 window.onload = function () {
-    document.getElementById("screen").innerHTML = header + border + main_content + footer;
+    $('#screen').html(header + border + main_content + footer);
 }

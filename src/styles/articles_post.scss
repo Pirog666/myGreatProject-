@@ -1,0 +1,77 @@
+@import "~normalize.css";
+@import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
+
+%textstyle{
+    font-family: Bebas;
+    color: whitesmoke;
+}
+
+body{
+    background-color: $black;
+    hr{
+    margin-bottom: 0rem;
+    }
+}
+
+.post{
+    grid-column: 1/5;
+    background-color: $white;
+    display: grid;
+
+    .post_description{
+        background-color: $black;
+        height: 860px;
+        position: relative;
+        >img{
+            pointer-events: none;
+            width: 100%;
+            object-fit:cover;
+            height: 860px;
+            opacity: 0.25; 
+        }
+        .post_description_title{
+            position: absolute;
+            text-align: center;
+            @extend %textstyle; 
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%, -50%);  
+            font-size: 4rem;
+            font-weight: bold;
+
+            .post_description_title_date{
+                font-size: 3rem;
+            }
+            .post_description_title_tags{
+                color: $purple;
+            }
+            .post_description_title_name{
+                color: $yellow;
+                margin: 3rem;
+            }
+            .post_description_title_button{
+                margin-top: 10rem;
+                a{
+                    color: $purple;
+                }
+                a:hover {
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+    .post_text{
+        padding: 4rem;
+        color: $black;
+        text-align: center;
+    }
+}
+
+
+

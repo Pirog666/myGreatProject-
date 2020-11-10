@@ -1,5 +1,9 @@
 @import "~normalize.css";
 @import "../fonts/bebas_font.css";
+$white: whitesmoke;
+$yellow: #FFBA00;
+$black: #0D0D0D;
+$purple: #551A8B;
 
 %textstyle{
     font-family: Bebas;
@@ -8,7 +12,11 @@
 
 html{
     font-size: 16px;
-}   
+    position: relative;
+}
+body{
+    overflow-y: scroll;
+}  
 
 .screen{
     display: grid;
@@ -34,18 +42,18 @@ html{
 }
 
 .footer{
-    height: 6%;
+    height: auto;
     width: 50%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    background-color: #FFBA00;
+    background-color: $yellow;
+    display: block;
     p{
         @extend %textstyle;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         margin: 0.7rem;
-        font-size: 2rem;
-        
+        font-size: 2rem; 
     }
 }
 
