@@ -26,12 +26,18 @@ window.onload = async function () {
 
     let template = articles_post_content;
     let info = await data;
+    let options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long'
+      };
 
     let resultItem = {
         picture: info.picture_url,
         tags: '#временно',
         name: info.name,
-        date: info.date
+        date: new Date(info.date).toLocaleString("ru", options)
     }
     
     let innerBlocks = mustache.render(template, resultItem);
