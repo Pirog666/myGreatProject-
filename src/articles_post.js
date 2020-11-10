@@ -35,7 +35,7 @@ window.onload = async function () {
 
     let resultItem = {
         picture: info.picture_url,
-        tags: '#временно',
+        tags: info.tag_names,
         name: info.name,
         date: new Date(info.date).toLocaleString("ru", options)
     }
