@@ -13,6 +13,7 @@ $purple: #551A8B;
 html{
     font-size: 16px;
     position: relative;
+    box-sizing: border-box;
 }
 body{
     overflow-y: scroll;
@@ -56,6 +57,63 @@ body{
         font-size: 2rem; 
     }
 }
+
+
+.pagination{
+    display: grid;
+    grid-column: 1/5;
+	display: flex;
+	justify-content: center;
+	align-items: center;   
+    margin: 3rem;
+    li{
+        list-style: none;  
+	    line-height: 3.125rem; 
+        margin: 0 0.3125rem;
+        @extend %textstyle;
+        a{
+            display: block; 
+            text-decoration: none;
+            color: $purple;
+            font-weight: 600;
+        }    
+    }
+    .pagination_container{
+        position: relative;
+        background: white;
+        display: flex;
+        padding: 0.625rem 1.25rem;
+        border-radius: 3.125rem;
+        box-shadow: 0.625rem 0.3125rem 0.3125rem rgba(0, 0, 0, .3);
+        .pagination_container_prev{
+            margin-right: 1.875rem;
+            font-weight: 700;
+            font-size: 1.875rem;
+        }
+        .pagination_container_next{
+            margin-left: 1.875rem;
+            font-weight: 700;
+            font-size: 1.875rem;
+        }
+        .pagination_container_pagenumber{
+	    width: 3.125rem;
+	    height: 3.125rem;
+	    line-height: 3.125rem;
+        text-align: center;
+        font-size: 1.25rem;
+        }
+        .active, .pagination_container_pagenumber:hover{
+	    background: $yellow;
+	    border-radius: 50%;
+        color: white;
+        }
+    }
+}
+
+
+
+
+
 
 
 

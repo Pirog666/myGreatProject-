@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 import header from './htmlfiles/partials/header.html';
 import footer from './htmlfiles/partials/footer.html';
 import border from './htmlfiles/partials/border_hr.html';
+import pagination from './htmlfiles/partials/pagination.html';
 
 import articles_content from './htmlfiles/partials/content/articles_content.html';
 import articles_block_template from './htmlfiles/partials/content/articles_block_template.html';
@@ -30,7 +31,7 @@ let dataTags = new Promise((resolve, reject) => {
 
 
 window.onload = async function () {
-    $('#screen').html(header + border + articles_content + footer);
+    $('#screen').html(header + border + articles_content + footer + pagination);
 
     let templateArticles = articles_block_template;
     let templateTags = articles_tags_template;
@@ -70,3 +71,5 @@ window.onload = async function () {
     $('#articles_tags_place').html(makeTags());
 }
 
+
+$(document).ready
