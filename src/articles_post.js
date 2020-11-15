@@ -14,9 +14,9 @@ import articles_post_content from './htmlfiles/partials/content/articles_post_co
 let data = new Promise((resolve, reject) => {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
-    let product = urlParams.get('id');
+    let idParam = urlParams.get('id');
 
-    fetch('http://localhost:3012/articles/' + product).then(data => {
+    fetch('http://localhost:3012/articles/' + idParam).then(data => {
         resolve(data.json());
     })
 });
