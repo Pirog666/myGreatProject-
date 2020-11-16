@@ -37,6 +37,7 @@ let makeBlock = async function makeBlock() {
     let templateArticles = articles_block_template;
     let infoArticles = await dataArticles;
     let innerBlocks = '';
+
     infoArticles.forEach(function (item, i, info) {
         let resultItem = {
             link: "articles_post.html?id=" + item.id,
@@ -49,6 +50,7 @@ let makeBlock = async function makeBlock() {
     return innerBlocks;
 }
 
+
 //tags
 let dataTags = new Promise((resolve, reject) => {
     fetch('http://localhost:3012/tags').then(data => {
@@ -60,6 +62,7 @@ let makeTags = async function makeTags() {
     let templateTags = articles_tags_template;
     let infoTags = await dataTags;
     let innerBlocks = '';
+    
     infoTags.forEach(function (item, i, info) {
         let resultItem = {
             name: item.tag_name,
@@ -71,6 +74,7 @@ let makeTags = async function makeTags() {
     return innerBlocks;
 }
 
+
 //onload
 window.onload = async function () {
     $('#screen').html(header + border + articles_content + footer + pagination);
@@ -78,10 +82,19 @@ window.onload = async function () {
     $('#articles_place').html(await makeBlock());
     $('#articles_tags_place').html(await makeTags());
 
-    // $('.pagination_container_next').click(function () {
-    //     $('pagination').find('.pagination_container_pagenumber.active').next().addClass('active');
-    //     console.log('hey');
-    // })
-
+    // next
+    $('.pagination_container_next').click(function () {
+        $('.pagination').find('.pagination_container_pagenumber.active').next().addClass('active');
+        $('.pagination').find('.pagination_container_pagenumber.active').prev().removeClass('active');
+        $('.pagination_container_next').removeClass('active');
+    })
+    
+    // prev
+    $('.pagination_container_prev').click(function () {
+        $('.pagination').find('.pagination_container_pagenumber.active').prev().addClass('active');
+        $('.pagination').find('.pagination_container_pagenumber.active').next().removeClass('active');
+        $('.pagination_container_prev').removeClass('active');
+    })
+  
 }
 

@@ -21,28 +21,29 @@ let data = new Promise((resolve, reject) => {
     })
 });
 
-
-window.onload = async function () {
-
+let makePostBlock = async function makeBlock() {
     let template = articles_post_content;
     let info = await data;
+
     let options = {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         weekday: 'long'
-      };
-
+    };
     let resultItem = {
         picture: info.picture_url,
         tags: info.tag_names,
         name: info.name,
         date: new Date(info.date).toLocaleString("ru", options)
     }
-    
     let innerBlocks = mustache.render(template, resultItem);
+    return innerBlocks;
+}
 
-    $('#screen').html(header + border + innerBlocks);
+window.onload = async function () {
+
+    $('#screen').html(header + border + await makePostBlock());
 
     $('.btnMedio').click(function (event) {
         console.log('yes');
